@@ -1,0 +1,40 @@
+name: Swift CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '15.2'  # Especifica la versión de Xcode que deseas usar
+
+      - name: Install dependencies
+        run: |
+          swift package resolve
+
+      - name: Build for iOS
+        run: |
+          xcodebuild clean build \
+          -scheme HistoryBalance \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+
+      - name: Run tests on iOS
+        run: |
+          xcodebuild test \
+          -scheme HistoryBalance \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
