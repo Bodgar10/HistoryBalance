@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		09AFC252ADFC4A9C58E31B26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7679045855C2A54469BA28C4 /* ContentView.swift */; };
 		3402E87367571CA8214B8DA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228326CFE103B5A1776D3D9A /* Assets.xcassets */; };
 		408FE1E95A569FF0F0C8E8C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0490B8FCBE868068E64A545C /* Preview Assets.xcassets */; };
+		875E21312CB6DCB00095A4A9 /* HistoryBalance in Frameworks */ = {isa = PBXBuildFile; productRef = 875E21302CB6DCB00095A4A9 /* HistoryBalance */; };
 		B84332D9538E9BC85E0AB66D /* HistoryBalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B447F1A88882CBE373A36 /* HistoryBalanceDemo.swift */; };
 /* End PBXBuildFile section */
 
@@ -19,8 +20,19 @@
 		7679045855C2A54469BA28C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		921B447F1A88882CBE373A36 /* HistoryBalanceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBalanceDemo.swift; sourceTree = "<group>"; };
 		B20CF8123104318D85C05E88 /* HistoryBalanceDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HistoryBalanceDemo.entitlements; sourceTree = "<group>"; };
-		E4864FB6EC20DD2B446EE048 /* HistoryBalanceDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HistoryBalanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4864FB6EC20DD2B446EE048 /* HistoryBalanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HistoryBalanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		875E212F2CB6DC9F0095A4A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				875E21312CB6DCB00095A4A9 /* HistoryBalance in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		35442FD2E78E4E8CEEFDA65A /* Products */ = {
@@ -56,7 +68,6 @@
 				656865766610FD25A2AE7324 /* Preview Content */,
 				89D956C4B28AED2DC364DA7A /* Resources */,
 			);
-			name = HistoryBalanceDemo;
 			path = HistoryBalanceDemo;
 			sourceTree = "<group>";
 		};
@@ -87,12 +98,17 @@
 				C53326E1695709A1A2E66E6E /* Sources */,
 				18B7C14DFCA202BE63760488 /* Run Script */,
 				EFAA4E3F193928A688CDC5D9 /* Resources */,
+				875E212F2CB6DC9F0095A4A9 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = HistoryBalanceDemo;
+			packageProductDependencies = (
+				875E212E2CB6DC6C0095A4A9 /* HistoryBalance */,
+				875E21302CB6DCB00095A4A9 /* HistoryBalance */,
+			);
 			productName = HistoryBalanceDemo;
 			productReference = E4864FB6EC20DD2B446EE048 /* HistoryBalanceDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -105,8 +121,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = D090197E85E217192D798ECF /* Build configuration list for PBXProject "HistoryBalanceDemo" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -117,6 +131,9 @@
 				en,
 			);
 			mainGroup = 9C7D3F82E84962FA449A37E5;
+			packageReferences = (
+				875E212D2CB6DC6C0095A4A9 /* XCLocalSwiftPackageReference ".." */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -176,7 +193,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -259,7 +278,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,6 +373,24 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		875E212D2CB6DC6C0095A4A9 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		875E212E2CB6DC6C0095A4A9 /* HistoryBalance */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HistoryBalance;
+		};
+		875E21302CB6DCB00095A4A9 /* HistoryBalance */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HistoryBalance;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A28992736215555E3A17A442 /* Project object */;
 }

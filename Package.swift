@@ -6,7 +6,7 @@ let package = Package(
     name: "HistoryBalance",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v17)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -14,10 +14,21 @@ let package = Package(
             name: "HistoryBalance",
             targets: ["HistoryBalance"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/Bodgar10/DesignSystem.git", .upToNextMajor(from: "1.0.7")),
+        .package(url: "https://github.com/Bodgar10/Common.git", .upToNextMajor(from: "1.0.1")),
+        .package(url: "https://github.com/Bodgar10/CashSwitchboard.git", .upToNextMajor(from: "1.0.3"))
+    ],
     targets: [
         .target(
-            name: "HistoryBalance"),
+            name: "HistoryBalance", 
+            dependencies:
+                [
+                .product(name: "DesignSystem", package: "DesignSystem"),
+                .product(name: "Common", package: "Common"),
+                .product(name: "CashSwitchboard", package: "CashSwitchboard")
+                ]
+        ),
         .testTarget(
             name: "HistoryBalanceTests",
             dependencies: ["HistoryBalance"]),
