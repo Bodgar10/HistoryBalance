@@ -15,7 +15,6 @@ public class HistoryBalanceViewModel: ObservableObject {
     // MARK: Dependencies
     
     @Dependency var transactionService: TransactionService
-    @Dependency var navigationService: NavigationService
     
     // MARK: Publishers
     
@@ -71,7 +70,7 @@ public class HistoryBalanceViewModel: ObservableObject {
     }
     
     private func calculateCategoryPercentage() -> [(category: CashSwitchboard.Category, percentage: Double)] {
-        let totalSpending = filteredTransactions.flatMap { $0 }
+        let totalSpending = filteredTransactions.compactMap { $0 }
         let spendingByCategory = Dictionary(grouping: totalSpending) { $0.category }
             .map { (category, transactions) -> (CashSwitchboard.Category, Double) in
                 let totalAmount = transactions.reduce(0) { $0 + $1.amount }
